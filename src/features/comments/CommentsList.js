@@ -1,6 +1,7 @@
 import { Col } from 'reactstrap';
 import Comments from './Comments';
 import { selectCommentsByCampsiteId } from './CommentsSlice';
+import CommentForm from './CommentForm';
 
 const CommentsList = ({ campsiteId }) => {
     const comments = selectCommentsByCampsiteId(campsiteId);
@@ -10,8 +11,9 @@ const CommentsList = ({ campsiteId }) => {
             <Col md='5' className='m-1'>
                 <h4>Comments</h4>
                 {comments.map((comment) => {
-                    return <Comments key={comment.id} comment={comment} />;
+                    return<Comments key={comment.id} comment={comment} />; 
                 })}
+                <CommentForm campsiteId={campsiteId} />
             </Col>
         );
     }
